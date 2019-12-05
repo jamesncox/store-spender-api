@@ -19,6 +19,17 @@ class Api::V1::ListsController < ApplicationController
         end
     end 
 
+    def update
+        @list = List.find(params[:id])
+        @list.update(list_params)
+        render json: ListSerializer.new(@list), include: [:store]
+    end
+    
+    def destroy
+        @list.destroy
+        head :no_content
+    end
+
     private
 
     def list_params 
