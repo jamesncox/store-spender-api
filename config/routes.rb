@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :lists
-  resources :stores
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+end
+  namespace :api do
+    namespace :v1 do
+
+      resources :lists
+      resources :stores
+
+    end
+  end
 end
