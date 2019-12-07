@@ -1,5 +1,5 @@
 class StoreSerializer
     include FastJsonapi::ObjectSerializer
     attributes :name
-    has_many :lists
+    has_many :items
 end
