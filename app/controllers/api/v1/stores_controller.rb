@@ -3,7 +3,7 @@ class Api::V1::StoresController < ApplicationController
     def index
         @stores = Store.all 
         options = {
-            include: [:lists]
+            include: [:items]
         }
         render json: StoreSerializer.new(@stores, options), status: 200
     end
@@ -11,7 +11,7 @@ class Api::V1::StoresController < ApplicationController
     def show
         @store = Store.find_by(id: params[:id])
         options = {
-            include: [:lists]
+            include: [:items]
         }
         render json: StoreSerializer.new(@store, options), status: 200
     end
@@ -19,7 +19,7 @@ class Api::V1::StoresController < ApplicationController
     def create
         @store = Store.create(store_params)
         options = {
-            include: [:lists]
+            include: [:items]
         }
         render json: StoreSerializer.new(@store, options), status: 200
     end 
